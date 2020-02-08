@@ -11,7 +11,17 @@ from dotmap import DotMap
 def avg(v):
   return 1.0*sum(v)/len(v)
 
+from contextlib import contextmanager
+from time import time
+from sys import stdout
 
+@contextmanager
+def duration(outfile=stdout):
+    start = time()
+    yield
+    end = time()
+    outfile.write(str(end - start) + '\n')
+    
 
 def strMUT(text, dic):
     """ Replaces keys of dic with values of dic in text. 2005-02 by Emanuel Rumpf """
