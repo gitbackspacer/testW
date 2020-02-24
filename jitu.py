@@ -84,4 +84,5 @@ class viv_dotdict(defaultdict):
 
 def dotree(): return viv_dotdict(dotree)
 
+tree = lambda: defaultdict(tree)
 
